@@ -1,3 +1,13 @@
+require("dotenv").config
+require("./main.js")
+
+const Provider = require('@truffle/hdwallet-provider');
+// const address = '' 
+const privateKey = ''
+
+const provider = new Provider(privateKey, process.env.INFURA_URL) 
+
+
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -47,6 +57,9 @@
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
+   api_keys: {
+    etherscan: Process.env.EHTERSCAN_API_KEY
+  },
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -82,6 +95,10 @@ module.exports = {
     //
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
+    rinkeby:{
+      provider:()=>provider,
+      network_id:4
+    },
     // goerli: {
     //   provider: () => new HDWalletProvider(MNEMONIC, `https://goerli.infura.io/v3/${PROJECT_ID}`),
     //   network_id: 5,       // Goerli's id
@@ -117,6 +134,8 @@ module.exports = {
       // }
     }
   },
+
+   plugins: ['truffle-plugin-verify']
 
   // Truffle DB is currently disabled by default; to enable it, change enabled:
   // false to enabled: true. The default storage location can also be
