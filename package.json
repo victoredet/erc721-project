@@ -3,16 +3,30 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "blockchain-test": "bin/test-project"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "blockchain-test"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.3",
     "@truffle/hdwallet-provider": "^2.0.14",
+    "arg": "^5.0.2",
+    "chalk": "^4.1.2",
     "dotenv": "^16.0.2",
+    "esm": "^3.2.25",
+    "inquirer": "^9.1.1",
+    "truffle-assertions": "^0.9.2",
     "web3": "^1.8.0"
   },
   "devDependencies": {

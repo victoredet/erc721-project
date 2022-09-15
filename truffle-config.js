@@ -1,10 +1,8 @@
 require("dotenv").config
-require("./main.js")
+import {privateKey} from './main'
 
 const Provider = require('@truffle/hdwallet-provider');
 // const address = '' 
-const privateKey = ''
-
 const provider = new Provider(privateKey, process.env.INFURA_URL) 
 
 
